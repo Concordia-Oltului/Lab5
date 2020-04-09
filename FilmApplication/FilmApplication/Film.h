@@ -30,6 +30,8 @@ public:
 	void set_release_year(int);
 	void set_likes_number(int);
 
+	string convert_to_string();
+
 	~Film();
 
 };

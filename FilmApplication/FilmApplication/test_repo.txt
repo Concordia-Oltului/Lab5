@@ -1,0 +1,5 @@
+nume de film1;comedie;1920;130;https://google.com;
+nume de film2;comedie;1920;130;https://google.com;
+nume de film3;comedie;1920;130;https://google.com;
+nume de film4;comedie;1920;130;https://google.com;
+nume de film5;comedie;1920;130;https://google.com;

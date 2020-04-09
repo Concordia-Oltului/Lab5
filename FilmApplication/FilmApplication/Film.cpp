@@ -76,4 +76,10 @@ void Film::set_trailer(string new_trailer) { Trailer = new_trailer; }
 void Film::set_release_year(int new_year) { ReleaseYear = new_year; }
 void Film::set_likes_number(int new_likes) { LikesNumber = new_likes; }
 
+string Film::convert_to_string() {
+	string str = "";
+	str += Title + ";" + Type + ";" + to_string(ReleaseYear) + ";" + to_string(LikesNumber) + ";" + Trailer + ";";
+	return str;
+}
+
 Film::~Film() {};

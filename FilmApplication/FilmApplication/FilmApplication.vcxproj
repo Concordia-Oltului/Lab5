@@ -148,12 +148,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Film.cpp" />
+    <ClCompile Include="FilmRepository.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Film.h" />
+    <ClInclude Include="FilmRepository.h" />
     <ClInclude Include="Test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test_repo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
