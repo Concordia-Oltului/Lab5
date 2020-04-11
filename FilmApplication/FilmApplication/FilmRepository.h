@@ -15,6 +15,8 @@ public:
 
 	FilmRepository(string filename);
 
+	FilmRepository operator=(FilmRepository& other);
+
 	void set_fileName(string new_name) { FileName = new_name; }
 
 	string get_title(int index) { return Repo[index].get_title(); }

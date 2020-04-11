@@ -12,6 +12,12 @@ FilmController::FilmController(FilmRepository source_repo) {
 	repo = source_repo;
 }
 
+FilmController FilmController::operator=(FilmController& other)
+{
+	repo = other.repo;
+	return *this;
+}
+
 void FilmController::add(string title, string type, int year, int likes, string trailer) {
 	/*
 	Adds a new element to repository

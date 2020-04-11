@@ -9,6 +9,8 @@ public:
 
 	FilmController(FilmRepository source_repo);
 
+	FilmController operator=(FilmController& other);
+
 	void add(string title, string type, int year, int likes, string trailer);
 
 	bool remove(string title);

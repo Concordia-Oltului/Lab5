@@ -6,6 +6,8 @@ private:
 public:
 	UserController();
 
+	void operator=(UserController& other);
+
 	void add_list();
 
 	void remove_list();

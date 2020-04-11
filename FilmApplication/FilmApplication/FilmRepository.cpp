@@ -22,6 +22,13 @@ FilmRepository::FilmRepository(string filename) {
 	read_from_file();
 }
 
+FilmRepository FilmRepository::operator=(FilmRepository& other)
+{
+	FileName = other.FileName;
+	Repo = other.Repo;
+	return *this;
+}
+
 void FilmRepository::add(string title, string type, int year, int likes, string trailer) {
 	/*
 	Adds a new element to repository
