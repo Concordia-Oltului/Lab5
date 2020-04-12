@@ -25,6 +25,10 @@ public:
 
 	bool update_trailer(string title, string trailer);
 
+	void print_films_admin();
+
+	bool in_list(string title);
+
 	~FilmController();
 
 };

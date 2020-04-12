@@ -134,4 +134,30 @@ bool FilmController::update_trailer(string title, string trailer) {
 	return false;
 }
 
+void FilmController::print_films_admin(){
+	/*
+	Prints in console all elements from repository
+	@author: Stefan
+	*/
+	vector<Film> films = repo.get_all_films();
+	cout << "Title\tType\tRelease Year\tLikes Number\tTrailer" << endl;
+	for (int i = 0; i < films.size(); i++) {
+		cout << films.at(i).get_title() << "\t" << films.at(i).get_type() << "\t" << films.at(i).get_release_year() << "\t" << films.at(i).get_likes_number() << "\t" << films.at(i).get_trailer() << endl;
+	}
+}
+
+bool FilmController::in_list(string title){
+	/*
+	Returns true if is a film in list with title title and false if not
+	Input:
+		title (string) - title of the film
+	Output:
+		bool
+	@author: Stefan
+	*/
+	if (repo.get_index(title) == -1)
+		return false;
+	return true;
+}
+
 FilmController::~FilmController() {}
