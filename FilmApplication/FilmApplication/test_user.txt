@@ -3,3 +3,4 @@ nume de film2;comedie;1920;130;https://google.com;
 nume de film3;comedie;1920;130;https://google.com;
 nume de film4;comedie;1920;130;https://google.com;
 nume de film5;comedie;1920;130;https://google.com;
+abcd;comedy;1920;30;https://google.com/;

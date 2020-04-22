@@ -7,8 +7,8 @@ using namespace std;
 
 class User{
 private:
-	string name, filename;
-	FilmRepository film_list;
+	string Name, FileName;
+	FilmRepository FilmList;
 public:
 	User();
 
@@ -16,11 +16,15 @@ public:
 
 	User(string name, string filename);
 
-	void add_list();
+	User operator=(User& other);
 
-	void remove_list();
+	int get_list_size() { return FilmList.size(); }
 
-	void read_from_file();
+	void add_list(Film film);
+
+	bool remove_list(string title);
+
+	vector<Film> get_all_list() { return FilmList.get_all_films(); }
 
 	~User();
 };

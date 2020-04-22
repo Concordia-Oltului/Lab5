@@ -12,6 +12,8 @@ public:
 
 	void remove_list();
 
+	void print_all();
+
 	~UserController();
 };
 

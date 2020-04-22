@@ -49,6 +49,21 @@ void FilmRepository::add(string title, string type, int year, int likes, string 
 	add_film_to_file(new_film); // add film to file to be saved
 }
 
+void FilmRepository::add(Film new_film){
+	/*
+	Adds a new element to repository
+	Input:
+		new_film(Film) - Film to be added in list
+	@author: Stefan
+	*/
+	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
+		exception file_not_set;
+		throw file_not_set;
+	}
+	Repo.push_back(new_film); // add film to repo
+	add_film_to_file(new_film); // add film to file to be saved
+}
+
 int FilmRepository::get_index(string title) {
 	/*
 	Search for a film in repository and return it's index in repository or -1 if film is not in repo

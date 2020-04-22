@@ -1,5 +1,6 @@
 #include "Film.h"
 #include "FilmRepository.h"
+#include "User.h"
 #include "Test.h"
 #include <iostream>
 #include <cassert>
@@ -42,7 +43,26 @@ void test_film_repo() {
 	assert(fr3.get_index("abcd") == -1);
 }
 
+void test_User_class() {
+	User u1, u2("test_user.txt"), u3("Costel", "test_user.txt");
+	assert(u1.get_list_size() == 0);
+	assert(u2.get_list_size() == 6);
+	assert(u3.get_list_size() == 6);
+	u3.remove_list("abcd");
+	assert(u2.get_list_size() == 6);
+	assert(u3.get_list_size() == 5);
+	FilmRepository fr1("test_user.txt");
+	assert(fr1.get_index("abcd") == -1);
+	Film f1("abcd", "comedy", 1920, 30, "https://google.com/");
+	u3.add_list(f1);
+	assert(u3.get_list_size() == 6);
+	FilmRepository fr2("test_user.txt");
+	assert(fr2.get_index("abcd") != -1);
+
+}
+
 void runAllTests() {
 	test_film_class();
 	test_film_repo();
+	test_User_class();
 }

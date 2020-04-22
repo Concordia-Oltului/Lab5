@@ -19,6 +19,10 @@ public:
 
 	void set_fileName(string new_name) { FileName = new_name; }
 
+	int size() { return Repo.size(); }
+
+	Film get_film(int index) { return Repo.at(index); }
+	
 	string get_title(int index) { return Repo[index].get_title(); }
 	string get_type(int index) { return Repo[index].get_type(); }
 	string get_trailer(int index) { return Repo[index].get_trailer(); }
@@ -32,6 +36,8 @@ public:
 	void set_likes_number(int index, int new_likes) { Repo[index].set_likes_number(new_likes); }
 
 	void add(string title, string type, int year, int likes, string trailer);
+
+	void add(Film new_film);
 
 	bool remove(string title);
 

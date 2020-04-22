@@ -67,5 +67,8 @@
     <Text Include="test_repo.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="test_user.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
