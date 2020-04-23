@@ -61,4 +61,11 @@ bool User::remove_list(string title){
 	return FilmList.remove(title);
 }
 
+void User::like_film(string title){
+	int index = FilmList.get_index(title);
+	if (index != -1)
+		FilmList.set_likes_number(index, FilmList.get_likes_number(index) + 1);
+	FilmList.write_all_to_file();
+}
+
 User::~User() {}

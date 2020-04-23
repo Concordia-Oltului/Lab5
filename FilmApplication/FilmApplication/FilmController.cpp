@@ -160,4 +160,11 @@ bool FilmController::in_list(string title){
 	return true;
 }
 
+void FilmController::like_film(string title) {
+	int index = repo.get_index(title);
+	if (index != -1)
+		repo.set_likes_number(index, repo.get_likes_number(index) + 1);
+	repo.write_all_to_file();
+}
+
 FilmController::~FilmController() {}

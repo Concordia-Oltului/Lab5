@@ -24,6 +24,8 @@ public:
 
 	bool remove_list(string title);
 
+	void like_film(string title);
+
 	vector<Film> get_all_list() { return FilmList.get_all_films(); }
 
 	~User();

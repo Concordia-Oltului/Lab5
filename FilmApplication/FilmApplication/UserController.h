@@ -6,11 +6,15 @@ private:
 public:
 	UserController();
 
+	UserController(User u);
+
 	void operator=(UserController& other);
 
 	void add_list();
 
-	void remove_list();
+	bool remove_list(string title);
+
+	void like_film(string title);
 
 	void print_all();
 

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-AppUI::AppUI(FilmController film){
+AppUI::AppUI(FilmController film, UserController user){
 	film_controller = film;
-	//user_controller = user;
+	user_controller = user;
 }
 
 int AppUI::get_user_option(){
@@ -34,6 +34,29 @@ void AppUI::createAdminMenu(){
 	cout << "3. Update a film" << endl;
 	cout << "4. Show all film" << endl;
 	cout << "0. Back" << endl;
+}
+
+void AppUI::createUserMenu(){
+	/*
+	Prints menu for admin
+	@author: Stefan
+	*/
+	cout << "User Menu:" << endl;
+	cout << "1. Add new film" << endl; // /\/\/\/\\/\/\ punei tu ce nume vrei /\/\/\/\/\/\/\/\/
+	cout << "2. Remove a film watched" << endl;
+	cout << "3. Print all films" << endl;
+	cout << "0. Back" << endl;
+}
+
+void AppUI::createUserTypeMenu(){
+	/*
+	Prints menu for selecting user type
+	@author: Stefan
+	*/
+	cout << "General Menu:" << endl;
+	cout << "1. User Menu" << endl;
+	cout << "2. Admin Menu" << endl;
+	cout << "0. Exit" << endl;
 }
 
 void AppUI::createAdminUpdateMenu(){
@@ -140,6 +163,40 @@ void AppUI::adminMenu(int choice) {
 	}
 }
 
+void AppUI::userMenu(int choice){
+	if (choice == 2) {
+		string title;
+		getline(cin, title); // s-a citit numar inainte
+		cout << "Enter the title of the film you have watched: ";
+		getline(cin, title);
+		if (user_controller.remove_list(title) == true) {
+			cout << "Did you like the film? 1. Yes 2. No";
+			if (get_user_option() == 1) {
+				user_controller.like_film(title);
+				film_controller.like_film(title);
+			}
+		}
+	}
+	if (choice == 3) {
+		user_controller.print_all();
+	}
+}
+
+void AppUI::userGeneral(){
+	/*
+	Build user menu
+	@author: Stefan
+	*/
+	createUserMenu();
+	int choice = get_user_option();
+	while (choice)
+	{
+		userMenu(choice);
+		createUserMenu();
+		choice = get_user_option();
+	}
+}
+
 void AppUI::adminGeneral(){
 	/*
 	Build admin menu
@@ -154,5 +211,24 @@ void AppUI::adminGeneral(){
 		choice = get_user_option();
 	}
 }
+
+void AppUI::menuGeneral(){ 
+	/*
+	Build General menu
+	@author: Stefan
+	*/
+	createUserTypeMenu();
+	int choice = get_user_option();
+	while (choice != 0) {
+		if (choice == 1)
+			userGeneral();
+		if (choice == 2)
+			adminGeneral();
+		createUserTypeMenu();
+		choice = get_user_option();
+	}
+}
+
+
 
 AppUI::~AppUI() {}

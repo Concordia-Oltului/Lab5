@@ -27,6 +27,8 @@ public:
 
 	void print_films_admin();
 
+	void like_film(string title);
+
 	bool in_list(string title);
 
 	~FilmController();

@@ -32,6 +32,8 @@ public:
 
 	string convert_to_string();
 
+	string convert_to_print();
+
 	~Film();
 
 };
