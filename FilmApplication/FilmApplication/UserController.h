@@ -10,8 +10,6 @@ public:
 
 	void operator=(UserController& other);
 
-	void add_list();
-
 	bool remove_list(string title);
 
 	void like_film(string title);

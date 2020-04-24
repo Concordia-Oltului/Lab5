@@ -33,6 +33,13 @@ User::User(string name, string filename){
 }
 
 User User::operator=(User& other){
+	/*
+	Copies attributes from object other to this object
+	Input:
+		other (User) - source User
+	Output:
+		User
+	*/
 	Name = other.Name;
 	FileName = other.FileName;
 	FilmList = other.FilmList;
@@ -62,6 +69,12 @@ bool User::remove_list(string title){
 }
 
 void User::like_film(string title){
+	/*
+	Increase likes number of the film given by paramter
+	Input:
+		title (string) - title of the film
+	@author: Stefan
+	*/
 	int index = FilmList.get_index(title);
 	if (index != -1)
 		FilmList.set_likes_number(index, FilmList.get_likes_number(index) + 1);

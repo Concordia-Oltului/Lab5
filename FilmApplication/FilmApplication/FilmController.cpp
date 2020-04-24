@@ -161,6 +161,12 @@ bool FilmController::in_list(string title){
 }
 
 void FilmController::like_film(string title) {
+	/*
+	Increase likes number of the film given by paramter
+	Input:
+		title (string) - title of the film
+	@author: Stefan
+	*/
 	int index = repo.get_index(title);
 	if (index != -1)
 		repo.set_likes_number(index, repo.get_likes_number(index) + 1);

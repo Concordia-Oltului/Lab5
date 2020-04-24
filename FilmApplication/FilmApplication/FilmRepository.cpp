@@ -22,8 +22,14 @@ FilmRepository::FilmRepository(string filename) {
 	read_from_file();
 }
 
-FilmRepository FilmRepository::operator=(FilmRepository& other)
-{
+FilmRepository FilmRepository::operator=(FilmRepository& other){
+	/*
+	Copies attributes from object other to this object
+	Input:
+		other (FilmRepository) - source repository
+	Output:
+		FilmRepository
+	*/
 	FileName = other.FileName;
 	Repo = other.Repo;
 	return *this;

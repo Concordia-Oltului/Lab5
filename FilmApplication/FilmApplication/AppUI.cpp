@@ -164,7 +164,13 @@ void AppUI::adminMenu(int choice) {
 }
 
 void AppUI::userMenu(int choice){
-	if (choice == 2) {
+	/*
+	Make changes for option choice
+	Input:
+		choice (int) - user choice
+	*/
+	if (choice == 2) { // remove watched film 
+		// @author: Stefan
 		string title;
 		getline(cin, title); // s-a citit numar inainte
 		cout << "Enter the title of the film you have watched: ";
@@ -177,7 +183,8 @@ void AppUI::userMenu(int choice){
 			}
 		}
 	}
-	if (choice == 3) {
+	if (choice == 3) { // prints all films in console
+		// @author: Stefan
 		user_controller.print_all();
 	}
 }
