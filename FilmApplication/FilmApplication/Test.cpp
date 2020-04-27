@@ -41,6 +41,10 @@ void test_film_repo() {
 	fr.remove("abcd");
 	FilmRepository fr3("test_repo.txt");
 	assert(fr3.get_index("abcd") == -1);
+	fr.add("aa", "aaa", 1111, 11, "https://google.com/");
+	assert(fr.filter_genre("aaa").size() == 1);
+	assert(fr.filter_genre("aba").size() == 0);
+	fr.remove("aa");
 }
 
 void test_User_class() {

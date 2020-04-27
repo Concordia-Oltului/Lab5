@@ -29,6 +29,7 @@ FilmRepository FilmRepository::operator=(FilmRepository& other){
 		other (FilmRepository) - source repository
 	Output:
 		FilmRepository
+	@author: Stefan
 	*/
 	FileName = other.FileName;
 	Repo = other.Repo;
@@ -177,6 +178,23 @@ vector<Film> FilmRepository::get_all_films() {
 	@author: Stefan
 	*/
 	return Repo;
+}
+
+vector<Film> FilmRepository::filter_genre(string genre) {
+	/*
+	Returns a vector of all elements from the repository that match a certain genre
+	Input:
+		genre (string) - genre to filter by
+	Output:
+		vector<Film>
+	@author: Victor
+	*/
+	vector<Film> filtered = {};
+	for (int i = 0; i < Repo.size(); i++) {
+		if (Repo[i].get_type() == genre)
+			filtered.push_back(Repo[i]);
+	}
+	return filtered;
 }
 
 FilmRepository::~FilmRepository() {}

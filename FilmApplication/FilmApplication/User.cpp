@@ -39,6 +39,7 @@ User User::operator=(User& other){
 		other (User) - source User
 	Output:
 		User
+	@author: Stefan
 	*/
 	Name = other.Name;
 	FileName = other.FileName;

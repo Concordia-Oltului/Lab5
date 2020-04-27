@@ -1,5 +1,9 @@
 #pragma once
 #include "FilmRepository.h"
+#include <vector>
+#include <string>
+
+using namespace std;
 
 class FilmController{
 private:
@@ -30,6 +34,10 @@ public:
 	void like_film(string title);
 
 	bool in_list(string title);
+
+	vector<Film> get_filtered(string genre);
+
+	vector<Film> get_all();
 
 	~FilmController();
 

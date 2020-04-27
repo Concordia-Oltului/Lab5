@@ -16,6 +16,8 @@ public:
 
 	void print_all();
 
+	void add_film(Film film);
+
 	~UserController();
 };
 

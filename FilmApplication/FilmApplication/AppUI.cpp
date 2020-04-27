@@ -1,5 +1,9 @@
 #include "AppUI.h"
+#include "User.h"
+#include <vector>
 #include <iostream>
+#include <Windows.h>
+#include <shellapi.h>
 
 using namespace std;
 
@@ -38,11 +42,11 @@ void AppUI::createAdminMenu(){
 
 void AppUI::createUserMenu(){
 	/*
-	Prints menu for admin
+	Prints menu for user
 	@author: Stefan
 	*/
 	cout << "User Menu:" << endl;
-	cout << "1. Add new film" << endl; // /\/\/\/\\/\/\ punei tu ce nume vrei /\/\/\/\/\/\/\/\/
+	cout << "1. Filter by genre" << endl;
 	cout << "2. Remove a film watched" << endl;
 	cout << "3. Print all films" << endl;
 	cout << "0. Back" << endl;
@@ -169,6 +173,46 @@ void AppUI::userMenu(int choice){
 	Input:
 		choice (int) - user choice
 	*/
+	if (choice == 1) { //browse database and potentially add films to watchlist
+		//@author: Victor
+		string genre;
+		getline(cin, genre);
+		cout << "Enter the genre to filter by: ";
+		getline(cin, genre);
+		vector<Film> filtered = film_controller.get_filtered(genre);
+		if (filtered.size() == 0) { //genre is empty
+			film_controller.print_films_admin();
+			filtered = film_controller.get_all();
+			for (int i = 0; i < filtered.size(); i++) {
+				cout << "Title\tType\tRelease Year\tLikes Number" << endl;
+				cout << filtered[i].get_title() << " " << filtered[i].get_type() << " " << filtered[i].get_release_year() << " " << filtered[i].get_likes_number() << endl;
+				ShellExecuteA(0, 0, filtered[i].get_trailer().c_str(), 0, 0, SW_SHOW);
+				cout << "Did you like the trailer? 1. Yes 2. No";
+				if (get_user_option() == 1) {
+					user_controller.add_film(filtered[i]);
+				}
+				cout << "Continue browsing the film database? 1. Yes 2. No";
+				if (get_user_option() == 2) {
+					return;
+				}
+			}
+		}
+		else { //genre is not empty
+			for (int i = 0; i < filtered.size(); i++) {
+				cout << "Title\tType\tRelease Year\tLikes Number" << endl;
+				cout << filtered[i].get_title() << " " << filtered[i].get_type() << " " << filtered[i].get_release_year() << " " << filtered[i].get_likes_number() << endl;
+				ShellExecuteA(0, 0, filtered[i].get_trailer().c_str(), 0, 0, SW_SHOW);
+				cout << "Did you like the trailer? 1. Yes 2. No";
+				if (get_user_option() == 1) {
+					user_controller.add_film(filtered[i]);
+				}
+				cout << "Continue browsing the film database? 1. Yes 2. No";
+				if (get_user_option() == 2) {
+					return;
+				}
+			}
+		}
+	}
 	if (choice == 2) { // remove watched film 
 		// @author: Stefan
 		string title;

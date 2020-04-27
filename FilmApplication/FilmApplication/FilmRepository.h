@@ -1,5 +1,5 @@
 #pragma once
-#include "Film.h";
+#include "Film.h"
 #include <vector>
 #include <iostream>
 #include <string>
@@ -50,6 +50,8 @@ public:
 	void write_all_to_file();
 
 	vector<Film> get_all_films();
+
+	vector<Film> filter_genre(string genre);
 
 	~FilmRepository();
 };

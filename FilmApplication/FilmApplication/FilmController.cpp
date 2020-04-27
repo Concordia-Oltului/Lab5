@@ -1,5 +1,7 @@
 #include "FilmController.h"
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -171,6 +173,28 @@ void FilmController::like_film(string title) {
 	if (index != -1)
 		repo.set_likes_number(index, repo.get_likes_number(index) + 1);
 	repo.write_all_to_file();
+}
+
+vector<Film> FilmController::get_filtered(string genre) {
+	/*
+	Returns a list of filtered Film objects from the repository
+	Input:
+		genre (string) - genre to filter by
+	Output:
+		vector<Film>
+	@author: Victor
+	*/
+	return repo.filter_genre(genre);
+}
+
+vector<Film> FilmController::get_all() {
+	/*
+	Returns all elements in the repository
+	Output:
+		vector<Film>
+	@author: Victor
+	*/
+	return repo.get_all_films();
 }
 
 FilmController::~FilmController() {}
