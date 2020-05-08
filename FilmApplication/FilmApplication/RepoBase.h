@@ -8,13 +8,13 @@ class RepoBase
 {
 public:
 
-	virtual void read_from_file() {}
+	virtual void read_from_file() = 0;
 
-	virtual void add_film_to_file(Film film) {}
+	virtual void add_film_to_file(Film film) = 0;
 
-	virtual void write_all_to_file() {}
+	virtual void write_all_to_file() = 0;
 
-	virtual void write_all_to_file_html() {}
+	virtual void write_all_to_file_html() = 0;
 
 };
 

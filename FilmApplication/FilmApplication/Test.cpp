@@ -108,11 +108,6 @@ void test_film_repo() {
 	assert(fr4.get_trailer(0).compare("https://github.com/") == 0);
 	fr4.set_HTMLName("test_repo.html");
 
-	RepoBase a;
-	a.add_film_to_file(f1);
-	a.read_from_file();
-	a.write_all_to_file();
-	a.write_all_to_file_html();
 }
 
 void test_User_class() {
