@@ -62,13 +62,39 @@
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RepoBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test_repo.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="test_user.txt">
+    <Text Include="test_user.csv">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test_repo.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="index.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="test_repo.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="film_index.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="user_index.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="db.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="user_db.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

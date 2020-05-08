@@ -21,14 +21,26 @@ User::User(string filename){
 	FilmList.read_from_file();
 }
 
-User::User(string name, string filename){
+User::User(string filename, string filenameHTML){
+	/*
+	Create a empty User and add all films from filename in film list
+	@author: Stefan
+	*/
+	FileName = filename;
+	FilmList.set_fileName(filename);
+	FilmList.set_HTMLName(filenameHTML);
+	FilmList.read_from_file();
+}
+
+User::User(string name, string filename, string filenameHTML){
 	/*
 	Create a empty User with a specific name and add all films from filename in film list
 	@author: Stefan
 	*/
 	FileName = filename;
-	Name = name; 
+	Name = name;
 	FilmList.set_fileName(FileName);
+	FilmList.set_HTMLName(filenameHTML);
 	FilmList.read_from_file();
 }
 
@@ -45,6 +57,14 @@ User User::operator=(User& other){
 	FileName = other.FileName;
 	FilmList = other.FilmList;
 	return *this;
+}
+
+void User::set_HTML_true(){
+	FilmList.set_HTML_true();
+}
+
+void User::set_HTML_false(){
+	FilmList.set_HTML_false();
 }
 
 void User::add_list(Film film){

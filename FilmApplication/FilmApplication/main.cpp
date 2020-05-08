@@ -4,6 +4,7 @@
 #include "User.h"
 #include "FilmController.h"
 #include "FilmRepository.h"
+#include "RepoBase.h"
 #include "AppUI.h"
 #include <string>
 
@@ -13,8 +14,8 @@ int main()
 {    
     runAllTests();
     cout << "All Tests Passed!\n";
-    FilmRepository fr("test_repo.txt");
-    User u("test_user.txt");
+    FilmRepository fr("db.csv", "film_index.html", true);
+    User u("Patrocle", "user_db.csv", "user_index.html");
     FilmController fc(fr);
     UserController uc(u);
     AppUI a(fc,uc);

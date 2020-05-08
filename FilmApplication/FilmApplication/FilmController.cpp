@@ -20,6 +20,14 @@ FilmController FilmController::operator=(FilmController& other)
 	return *this;
 }
 
+void FilmController::set_HTML_true(){
+	repo.set_HTML_true();
+}
+
+void FilmController::set_HTML_false() {
+	repo.set_HTML_false();
+}
+
 void FilmController::add(string title, string type, int year, int likes, string trailer) {
 	/*
 	Adds a new element to repository

@@ -1,23 +1,34 @@
 #pragma once
 #include "Film.h"
+#include "RepoBase.h"
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class FilmRepository{
+class FilmRepository:public RepoBase{
 private:
 	string FileName;
+	string FileNameHTML;
 	vector<Film> Repo;
+	bool html;
 public:
 	FilmRepository();
 
 	FilmRepository(string filename);
 
+	FilmRepository(string filename, string filename_html, bool html_verif);
+
 	FilmRepository operator=(FilmRepository& other);
 
 	void set_fileName(string new_name) { FileName = new_name; }
+
+	void set_HTMLName(string name) { FileNameHTML = name; html = true; }
+
+	void set_HTML_true();
+
+	void set_HTML_false();
 
 	int size() { return Repo.size(); }
 
@@ -48,6 +59,11 @@ public:
 	void add_film_to_file(Film film);
 
 	void write_all_to_file();
+
+	void write_header_html();
+	void write_footer_html();
+
+	void write_all_to_file_html();
 
 	vector<Film> get_all_films();
 
