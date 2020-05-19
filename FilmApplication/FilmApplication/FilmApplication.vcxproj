@@ -152,6 +152,7 @@
     <ClCompile Include="FilmController.cpp" />
     <ClCompile Include="FilmRepository.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyException.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserController.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Film.h" />
     <ClInclude Include="FilmController.h" />
     <ClInclude Include="FilmRepository.h" />
+    <ClInclude Include="MyException.h" />
     <ClInclude Include="RepoBase.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="User.h" />

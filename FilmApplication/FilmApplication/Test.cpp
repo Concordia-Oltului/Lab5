@@ -3,6 +3,7 @@
 #include "FilmRepository.h"
 #include "FilmController.h"
 #include "UserController.h"
+#include "MyException.h"
 #include "User.h"
 #include "Test.h"
 #include <iostream>
@@ -54,7 +55,7 @@ void test_film_repo() {
 		fr1.add("abcd", "comedy", 1920, 30, "https://google.com/");
 		//assert(false);
 	}
-	catch (exception&)	{
+	catch (MyException&)	{
 		assert(true);
 	}
 	fr.add("abcd", "comedy", 1920, 30, "https://google.com/");
@@ -67,7 +68,7 @@ void test_film_repo() {
 		fr1.remove("abcd");
 		//assert(false);
 	}
-	catch (exception&) {
+	catch (MyException&) {
 		assert(true);
 	}
 	fr.remove("abcd");
@@ -87,7 +88,7 @@ void test_film_repo() {
 		fr1.add(f1);
 		//assert(false);
 	}
-	catch (exception&) {
+	catch (MyException&) {
 		assert(true);
 	}
 	fr.add(f1);

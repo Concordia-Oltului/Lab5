@@ -1,5 +1,6 @@
 #include <fstream>
 #include "FilmRepository.h"
+#include "MyException.h"
 
 
 FilmRepository::FilmRepository(){
@@ -77,14 +78,17 @@ void FilmRepository::add(string title, string type, int year, int likes, string 
 	@author: Stefan
 	*/
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
-		exception file_not_set;
-		throw file_not_set;
+		throw MyException("CSV file does not exist!");
 	}
 	Film new_film(title, type, year, likes, trailer); // create a new film
 	Repo.push_back(new_film); // add film to repo
 	add_film_to_file(new_film); // add film to file to be saved
-	if (html == true)
+	if (html == true) {
+		if (FileNameHTML.compare("") == 0) { // if filename is not setted throw an exception
+			throw MyException("HTML file does not exist!");
+		}
 		write_all_to_file_html();
+	}
 }
 
 void FilmRepository::add(Film new_film){
@@ -95,13 +99,16 @@ void FilmRepository::add(Film new_film){
 	@author: Stefan
 	*/
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
-		exception file_not_set;
-		throw file_not_set;
+		throw MyException("CSV file does not exist!");
 	}
 	Repo.push_back(new_film); // add film to repo
 	add_film_to_file(new_film); // add film to file to be saved
-	if (html == true)
+	if (html == true) {
+		if (FileNameHTML.compare("") == 0) { // if filename is not setted throw an exception
+			throw MyException("HTML file does not exist!");
+		}
 		write_all_to_file_html();
+	}
 }
 
 int FilmRepository::get_index(string title) {
@@ -130,16 +137,19 @@ bool FilmRepository::remove(string title) {
 	@author: Stefan
 	*/
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
-		exception file_not_set;
-		throw file_not_set;
+		throw MyException("CSV file does not exist!");
 	}
 	int index = get_index(title); // search for film in repository
 	if (index == -1) //  if film is not in repository return false
 		return false;
 	Repo.erase(Repo.begin() + index); // deletes element form repository
 	write_all_to_file(); // rewrite all films to file
-	if(html == true)
+	if (html == true) {
+		if (FileNameHTML.compare("") == 0) { // if filename is not setted throw an exception
+			throw MyException("HTML file does not exist!");
+		}
 		write_all_to_file_html();
+	}
 	return true;
 }
 
