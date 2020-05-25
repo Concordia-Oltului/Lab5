@@ -57,12 +57,20 @@ FilmRepository FilmRepository::operator=(FilmRepository& other){
 }
 
 void FilmRepository::set_HTML_true(){
+	/*
+	Setting html true, because it's using html file if is setted
+	@author: Stefan
+	*/
 	if (FileNameHTML.compare("") != 0) {
 		html = true;
 	}
 }
 
 void FilmRepository::set_HTML_false(){
+	/*
+	Setting html false, because it's not using html file 
+	@author: Stefan
+	*/
 	html = false;
 }
 
@@ -104,7 +112,7 @@ void FilmRepository::add(Film new_film){
 	Repo.push_back(new_film); // add film to repo
 	add_film_to_file(new_film); // add film to file to be saved
 	if (html == true) {
-		if (FileNameHTML.compare("") == 0) { // if filename is not setted throw an exception
+		if (FileNameHTML.compare("") == 0) { // if  html filename is not setted throw an exception
 			throw MyException("HTML file does not exist!");
 		}
 		write_all_to_file_html();
@@ -145,7 +153,7 @@ bool FilmRepository::remove(string title) {
 	Repo.erase(Repo.begin() + index); // deletes element form repository
 	write_all_to_file(); // rewrite all films to file
 	if (html == true) {
-		if (FileNameHTML.compare("") == 0) { // if filename is not setted throw an exception
+		if (FileNameHTML.compare("") == 0) { // if html filename is not setted throw an exception
 			throw MyException("HTML file does not exist!");
 		}
 		write_all_to_file_html();
@@ -216,6 +224,10 @@ void FilmRepository::write_all_to_file() {
 }
 
 void FilmRepository::write_header_html(){
+	/*
+	Write header for HTML file
+	@author: Stefan
+	*/
 	fstream file;
 	file.open(FileNameHTML, ios::out);
 	file.close();
@@ -228,6 +240,10 @@ void FilmRepository::write_header_html(){
 }
 
 void FilmRepository::write_footer_html(){
+	/*
+	Write footer for HTML file
+	@author: Stefan
+	*/
 	fstream file;
 	file.open(FileNameHTML, ios::app);
 	file << "</table>\n</body>\n</html>";
@@ -236,7 +252,7 @@ void FilmRepository::write_footer_html(){
 
 void FilmRepository::write_all_to_file_html() {
 	/*
-	Write all elements from repository to file
+	Write all elements from repository to HTML file
 	@author: Stefan
 	*/
 	fstream file;

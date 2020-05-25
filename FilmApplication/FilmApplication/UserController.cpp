@@ -15,10 +15,18 @@ void UserController::operator=(UserController& other) {
 }
 
 void UserController::set_HTML_true(){
+	/*
+	Setting html true, because it's using html file if is setted
+	@author: Stefan
+	*/
 	user.set_HTML_true();
 }
 
 void UserController::set_HTML_false(){
+	/*
+	Setting html false, because it's not using html file 
+	@author: Stefan
+	*/
 	user.set_HTML_false();
 }
 

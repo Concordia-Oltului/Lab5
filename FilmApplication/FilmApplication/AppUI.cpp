@@ -264,6 +264,10 @@ void AppUI::adminGeneral(){
 }
 
 void AppUI::UI_set_html() {
+	/*
+	Menu for chosing saving method
+	@author: Stefan
+	*/
 	cout << "How do you want to save data:" << endl;
 	cout << "1. HTML" << endl;
 	cout << "2. CSV" << endl;

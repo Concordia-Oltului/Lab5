@@ -60,10 +60,18 @@ User User::operator=(User& other){
 }
 
 void User::set_HTML_true(){
+	/*
+	Seteaza html pe true, deoarece se va folosi fisierul html daca acesta este setat
+	@author: Stefan
+	*/
 	FilmList.set_HTML_true();
 }
 
 void User::set_HTML_false(){
+	/*
+	Seteaza html pe false, deoarece nu se va folosi fisierul html 
+	@author: Stefan
+	*/
 	FilmList.set_HTML_false();
 }
 

@@ -5,6 +5,14 @@ MyException::MyException(string e) {
 }
 
 string MyException::what() {
+	/*
+	Returns what exception appeared
+	Input:
+		-
+	Output:
+		String
+	@author: Stefan
+	*/
 	return "Exception: " + err;
 }
 

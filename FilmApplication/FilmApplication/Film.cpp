@@ -84,8 +84,9 @@ string Film::convert_to_string() {
 	return str;
 }
 
-string Film::convert_to_html()
-{
+string Film::convert_to_html(){
+	// Convert film to string for adding to HTML file
+	// @author: Stefan
 	string str = "<tr>";
 	string string_trailer = "<a href=\"" + Trailer + "\">Link</a>";
 	str = str + "<td>" + Title + "</td>\n<td>" + Type + "</td>\n<td>" + to_string(ReleaseYear) + "</td>\n<td>" + to_string(LikesNumber) + "</td>\n<td>" + string_trailer + "</td></tr>";

@@ -53,7 +53,7 @@ void test_film_repo() {
 	FilmRepository fr("test_repo.csv", "test_repo.html", true),fr1;
 	try	{
 		fr1.add("abcd", "comedy", 1920, 30, "https://google.com/");
-		//assert(false);
+		assert(false);
 	}
 	catch (MyException&)	{
 		assert(true);
@@ -66,7 +66,7 @@ void test_film_repo() {
 	assert(fr2.get_index("abcd") != -1);
 	try {
 		fr1.remove("abcd");
-		//assert(false);
+		assert(false);
 	}
 	catch (MyException&) {
 		assert(true);
@@ -86,7 +86,7 @@ void test_film_repo() {
 	Film f1("qwer", "comedy", 1920, 30, "https://google.com/");
 	try {
 		fr1.add(f1);
-		//assert(false);
+		assert(false);
 	}
 	catch (MyException&) {
 		assert(true);
