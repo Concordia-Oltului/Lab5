@@ -21,10 +21,18 @@ FilmController FilmController::operator=(FilmController& other)
 }
 
 void FilmController::set_HTML_true(){
+	/*
+	Setting html true, because it's using html file if is setted
+	@author: Stefan
+	*/
 	repo.set_HTML_true();
 }
 
 void FilmController::set_HTML_false() {
+	/*
+	Setting html false, because it's using html file
+	@author: Stefan
+	*/
 	repo.set_HTML_false();
 }
 
