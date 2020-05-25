@@ -87,7 +87,7 @@ void AppUI::adminMenu(int choice) {
 	if (choice == 1) { // add new film to list
 		string title, type, trailer;
 		int year, likes;
-		getline(cin,title); // s-a citit inainte un numar
+		getline(cin, title); // s-a citit inainte un numar
 		cout << "Enter film title: ";
 		getline(cin, title);
 		cout << "Enter film type: ";

@@ -2,6 +2,7 @@
 #include "FilmRepository.h"
 #include "User.h"
 #include "Test.h"
+#include "Validator.h"
 #include <iostream>
 #include <cassert>
 #include <string>
@@ -65,8 +66,17 @@ void test_User_class() {
 
 }
 
+void test_Validator_class() {
+	Validator validate;
+	string str = "Rolls Royce on my wrist";
+	validate.validateAlpha(str);
+	str = "I freaked 1265it";
+	validate.validateAlpha(str);
+}
+
 void runAllTests() {
 	test_film_class();
 	test_film_repo();
 	test_User_class();
+	test_Validator_class();
 }

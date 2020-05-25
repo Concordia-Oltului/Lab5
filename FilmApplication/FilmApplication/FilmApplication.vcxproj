@@ -161,6 +161,7 @@
     <ClInclude Include="Film.h" />
     <ClInclude Include="FilmController.h" />
     <ClInclude Include="FilmRepository.h" />
+    <ClInclude Include="Validator.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
