@@ -154,7 +154,7 @@ void test_film_controller() {
 	assert(fc.update_likes("zxcv", 2) == false);
 	assert(fc.update_likes("efgh", 2) == true);
 	assert(fc.update_trailer("zxcv", "www") == false);
-	assert(fc.update_trailer("efgh", "www") == true);
+	assert(fc.update_trailer("efgh", "https://www") == true);
 	assert(fc.update_title("zxcv", "qwerty") == false);
 	assert(fc.update_title("efgh", "qwerty") == true);
 
@@ -192,9 +192,17 @@ void test_user_controller() {
 void test_Validator_class() {
 	Validator validate;
 	string str = "Rolls Royce on my wrist";
-	assert(validate.validateAlpha(str));
-	str = "I freaked 1265it";
-	try { assert(!validate.validateAlpha(str));  }
+	assert(validate.validateTitle(str));
+	str = "I freaked it			 but not really";
+	try { assert(!validate.validateTitle(str));  }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
+
+	string genre = "Action";
+	assert(validate.validateGenre(genre));
+	genre = "Com3dy";
+	try { assert(!validate.validateGenre(genre)); }
 	catch (MyException e) {
 		assert(1 > 0);
 	}
@@ -216,6 +224,16 @@ void test_Validator_class() {
 	assert(validate.validateLikes(likes));
 	likes = -1;
 	try { assert(!validate.validateLikes(likes)); }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
+
+	string link = "https://google.com";
+	assert(validate.validateLink(link));
+	link = "https://www.test.com";
+	assert(validate.validateLink(link));
+	link = "http://insecurewebsite.com";
+	try { assert(!validate.validateLink(link)); }
 	catch (MyException e) {
 		assert(1 > 0);
 	}

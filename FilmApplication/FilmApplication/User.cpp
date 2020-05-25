@@ -1,4 +1,5 @@
 #include "User.h"
+#include "Validator.h"
 #include <fstream>
 
 User::User(){
@@ -82,6 +83,7 @@ void User::add_list(Film film){
 		film(Film) - Film to be added in list
 	@author: Stefan
 	*/
+
 	FilmList.add(film);
 }
 

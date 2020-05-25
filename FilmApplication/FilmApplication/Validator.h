@@ -7,7 +7,7 @@ using namespace std;
 
 class Validator {
 	public:
-		bool validateAlpha(string alpha) {
+		bool validateGenre(string alpha) {
 			/*
 			checks if string 'alpha' has any invalid characters
 			valid characters: alphabetic characters, space character
@@ -19,8 +19,49 @@ class Validator {
 			@author: Victor
 			*/
 			for (int i = 0; i < alpha.size(); i++) {
-				if (!(isalpha(alpha[i])) && !(isspace(alpha[i]))) {
-					MyException e("Invalid alphabetic input\n");
+				if (!(isalpha(alpha[i])) && !(isblank(alpha[i]))) {
+					MyException e("Invalid genre input\n");
+					throw e;
+				}
+			}
+			return true;
+		}
+
+		bool validateTitle(string title) {
+			/*
+			checks if string 'title' has any invalid characters
+			valid characters: alphanumeric characters, space character, punctuation characters
+			Input:
+				title (string) - title input string
+			Output:
+				throws exception if input invalid
+				returns true otherwise
+			@author: Victor
+			*/
+			for (int i = 0; i < title.size(); i++) {
+				if (!isprint(title[i])) {
+					MyException e("Invalid title input\n");
+					throw e;
+				}
+			}
+			return true;
+		}
+
+		bool validateLink(string link) {
+			/*
+			checks if string 'link' is a valid link
+			valid links: secure HTTPS links
+			Input:
+				link (string) - trailer link input string
+			Output:
+				throws exception if input invalid
+				returns true otherwise
+			@author: Victor
+			*/
+			string test = "https://";
+			for (int i = 0; i < test.size(); i++) {
+				if (test[i] != link[i]) {
+					MyException e("Invalid trailer link\n");
 					throw e;
 				}
 			}

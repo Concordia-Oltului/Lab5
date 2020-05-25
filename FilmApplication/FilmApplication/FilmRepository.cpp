@@ -1,6 +1,7 @@
 #include <fstream>
 #include "FilmRepository.h"
 #include "MyException.h"
+#include "Validator.h"
 
 
 FilmRepository::FilmRepository(){
@@ -88,6 +89,14 @@ void FilmRepository::add(string title, string type, int year, int likes, string 
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
 		throw MyException("CSV file does not exist!");
 	}
+	//validating input
+	Validator valid;
+	valid.validateTitle(title);
+	valid.validateGenre(type);
+	valid.validateYear(year);
+	valid.validateLikes(likes);
+	valid.validateLink(trailer);
+
 	Film new_film(title, type, year, likes, trailer); // create a new film
 	Repo.push_back(new_film); // add film to repo
 	add_film_to_file(new_film); // add film to file to be saved
@@ -109,6 +118,7 @@ void FilmRepository::add(Film new_film){
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
 		throw MyException("CSV file does not exist!");
 	}
+	
 	Repo.push_back(new_film); // add film to repo
 	add_film_to_file(new_film); // add film to file to be saved
 	if (html == true) {
@@ -128,6 +138,10 @@ int FilmRepository::get_index(string title) {
 		int
 	@author: Stefan
 	*/
+	//validating input
+	Validator valid;
+	valid.validateTitle(title);
+
 	for (int i = 0; i < Repo.size(); i++) {
 		if (Repo.at(i).get_title().compare(title) == 0)
 			return i;
@@ -147,6 +161,10 @@ bool FilmRepository::remove(string title) {
 	if (FileName.compare("") == 0) { // if filename is not setted throw an exception
 		throw MyException("CSV file does not exist!");
 	}
+	//validating input
+	Validator valid;
+	valid.validateTitle(title);
+
 	int index = get_index(title); // search for film in repository
 	if (index == -1) //  if film is not in repository return false
 		return false;
@@ -289,6 +307,10 @@ vector<Film> FilmRepository::filter_genre(string genre) {
 		vector<Film>
 	@author: Victor
 	*/
+	//validating input
+	Validator valid;
+	valid.validateGenre(genre);
+
 	vector<Film> filtered = {};
 	for (int i = 0; i < Repo.size(); i++) {
 		if (Repo[i].get_type() == genre)
