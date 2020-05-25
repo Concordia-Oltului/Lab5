@@ -14,6 +14,22 @@ void UserController::operator=(UserController& other) {
 	user = other.user;
 }
 
+void UserController::set_HTML_true(){
+	/*
+	Setting html true, because it's using html file if is setted
+	@author: Stefan
+	*/
+	user.set_HTML_true();
+}
+
+void UserController::set_HTML_false(){
+	/*
+	Setting html false, because it's not using html file 
+	@author: Stefan
+	*/
+	user.set_HTML_false();
+}
+
 bool UserController::remove_list(string title) {
 	/*
 	Removes the film with title title from user's film list and return true and if film is not in list returns false

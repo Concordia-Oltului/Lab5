@@ -16,7 +16,13 @@ public:
 
 	User(string name, string filename);
 
+	User(string name, string filename, string filenameHTML);
+
 	User operator=(User& other);
+
+	void set_HTML_true();
+
+	void set_HTML_false();
 
 	int get_list_size() { return FilmList.size(); }
 

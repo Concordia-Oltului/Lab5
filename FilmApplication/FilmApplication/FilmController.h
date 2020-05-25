@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class FilmController{
+class FilmController {
 private:
 	FilmRepository repo;
 public:
@@ -14,6 +14,10 @@ public:
 	FilmController(FilmRepository source_repo);
 
 	FilmController operator=(FilmController& other);
+
+	void set_HTML_true();
+
+	void set_HTML_false();
 
 	void add(string title, string type, int year, int likes, string trailer);
 

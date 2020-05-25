@@ -28,6 +28,8 @@ public:
 
 	void adminGeneral();
 
+	void UI_set_html();
+
 	void menuGeneral();
 
 	~AppUI();

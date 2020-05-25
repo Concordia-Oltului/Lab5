@@ -152,6 +152,7 @@
     <ClCompile Include="FilmController.cpp" />
     <ClCompile Include="FilmRepository.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyException.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserController.cpp" />
@@ -161,14 +162,24 @@
     <ClInclude Include="Film.h" />
     <ClInclude Include="FilmController.h" />
     <ClInclude Include="FilmRepository.h" />
-    <ClInclude Include="Validator.h" />
+    <ClInclude Include="MyException.h" />
+    <ClInclude Include="RepoBase.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="test_repo.txt" />
-    <Text Include="test_user.txt" />
+    <Text Include="test_user.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="db.csv" />
+    <None Include="film_index.html" />
+    <None Include="index.html" />
+    <None Include="test_repo.csv" />
+    <None Include="test_repo.html" />
+    <None Include="user_db.csv" />
+    <None Include="user_index.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

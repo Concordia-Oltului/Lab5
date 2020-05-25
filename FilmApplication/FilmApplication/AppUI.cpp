@@ -263,11 +263,32 @@ void AppUI::adminGeneral(){
 	}
 }
 
+void AppUI::UI_set_html() {
+	/*
+	Menu for chosing saving method
+	@author: Stefan
+	*/
+	cout << "How do you want to save data:" << endl;
+	cout << "1. HTML" << endl;
+	cout << "2. CSV" << endl;
+	int choice = get_user_option();
+	if (choice == 1) {
+		film_controller.set_HTML_true();
+		user_controller.set_HTML_true();
+	}
+	else {
+		film_controller.set_HTML_false();
+		user_controller.set_HTML_false();
+	}
+}
+
+
 void AppUI::menuGeneral(){ 
 	/*
 	Build General menu
 	@author: Stefan
 	*/
+	UI_set_html();
 	createUserTypeMenu();
 	int choice = get_user_option();
 	while (choice != 0) {

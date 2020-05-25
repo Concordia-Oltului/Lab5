@@ -80,7 +80,16 @@ string Film::convert_to_string() {
 	// Convert film to string for adding to file
 	// @author: Stefan
 	string str = "";
-	str += Title + ";" + Type + ";" + to_string(ReleaseYear) + ";" + to_string(LikesNumber) + ";" + Trailer + ";";
+	str += Title + "," + Type + "," + to_string(ReleaseYear) + "," + to_string(LikesNumber) + "," + Trailer + ",";
+	return str;
+}
+
+string Film::convert_to_html(){
+	// Convert film to string for adding to HTML file
+	// @author: Stefan
+	string str = "<tr>";
+	string string_trailer = "<a href=\"" + Trailer + "\">Link</a>";
+	str = str + "<td>" + Title + "</td>\n<td>" + Type + "</td>\n<td>" + to_string(ReleaseYear) + "</td>\n<td>" + to_string(LikesNumber) + "</td>\n<td>" + string_trailer + "</td></tr>";
 	return str;
 }
 
@@ -88,7 +97,7 @@ string Film::convert_to_print() {
 	// Convert film to string to be printed in console
 	// @author: Stefan
 	string str = "";
-	str += Title + " " + Type + " " + to_string(ReleaseYear) + " " + to_string(LikesNumber) + " " + Trailer + " ";
+	str += Title + " " + Type + " " + to_string(ReleaseYear) + " " + to_string(LikesNumber) + " " + Trailer;
 	return str;
 }
 
