@@ -189,10 +189,19 @@ void test_user_controller() {
 	assert(uc.remove_list("abcd") == true);
 }
 
+void test_Validator_class() {
+	Validator validate;
+	string str = "Rolls Royce on my wrist";
+	validate.validateAlpha(str);
+	str = "I freaked 1265it";
+	validate.validateAlpha(str);
+}
+
 void runAllTests() {
 	test_film_class();
 	test_film_repo();
 	test_User_class();
 	test_film_controller();
 	test_user_controller();
+	test_Validator_class();
 }

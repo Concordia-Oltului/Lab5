@@ -167,6 +167,7 @@
     <ClInclude Include="Test.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
+    <ClInclude Include="Validator.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="test_repo.txt" />
