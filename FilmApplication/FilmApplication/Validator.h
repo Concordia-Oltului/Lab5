@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <exception>
+#include "MyException.h"
 #include <iostream>
 
 using namespace std;
@@ -20,17 +20,46 @@ class Validator {
 			*/
 			for (int i = 0; i < alpha.size(); i++) {
 				if (!(isalpha(alpha[i])) && !(isspace(alpha[i]))) {
-					cout << "Invalid alphabetic input\nInvalid characters in string " << alpha;
-					exception e; throw e;
+					MyException e("Invalid alphabetic input\n");
+					throw e;
 				}
 			}
 			return true;
 		}
 
-		bool validateInteger(int integer) {
+		bool validateYear(int Year) {
 			/*
-			
+			checks if integer 'Year' qualifies as a year format
+			invalid cases: 'Year' is below 0 or greater than current year
+			Input:
+				Year (integer) - input release year
+			Output:
+				throws exception if input invalid
+				returns true otherwise
+			@author: Victor
 			*/
-			
+			if (Year < 0 || Year > 2020) {
+				MyException e("Invalid year input\n");
+				throw e;
+			}
+			return true;
+		}
+
+		bool validateLikes(int Likes) {
+			/*
+			checks if integer 'Likes' has a valid value
+			invalid cases: 'Likes' below 0
+			Input:
+				Likes (integer) - input likes number
+			Output:
+				throws exception if input invalid
+				returns true otherwise
+			@author: Victor
+			*/
+			if (Likes < 0) {
+				MyException e("Invalid likes input\n");
+				throw e;
+			}
+			return true;
 		}
 };

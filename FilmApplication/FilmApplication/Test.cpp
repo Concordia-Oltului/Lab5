@@ -192,9 +192,33 @@ void test_user_controller() {
 void test_Validator_class() {
 	Validator validate;
 	string str = "Rolls Royce on my wrist";
-	validate.validateAlpha(str);
+	assert(validate.validateAlpha(str));
 	str = "I freaked 1265it";
-	validate.validateAlpha(str);
+	try { assert(!validate.validateAlpha(str));  }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
+
+	int year = 2008;
+	assert(validate.validateYear(year));
+	year = 2021;
+	try { assert(!validate.validateYear(year)); }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
+	year = -2019;
+	try { assert(!validate.validateYear(year)); }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
+
+	int likes = 20;
+	assert(validate.validateLikes(likes));
+	likes = -1;
+	try { assert(!validate.validateLikes(likes)); }
+	catch (MyException e) {
+		assert(1 > 0);
+	}
 }
 
 void runAllTests() {
